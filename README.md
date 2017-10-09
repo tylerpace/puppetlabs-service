@@ -16,21 +16,21 @@ This module provides the service task. This task allows you to manage and inspec
 ## Requirements
 This module is compatible with Puppet Enterprise and Puppet Bolt.
 
-Puppet Enterprise 2017.3 or later has to be installed on the machine from which you are running task commands (the controller node). Machines receiving task requests must be Puppet agents.
-OR
-Puppet Bolt 0.3.2 or later has to be installed on the machine from which you are running task commands. Machines receiving task requests must have SSH or WinRM services enabled.
+* To run tasks with Puppet Enterprise, PE 2017.3 or later must be installed on the machine from which you are running task commands. Machines receiving task requests must be Puppet agents.
+
+* To run tasks with Puppet Bolt, Bolt 0.5 or later must be installed on the machine from which you are running task commands. Machines receiving task requests must have SSH or WinRM services enabled.
 
 ## Usage
 
 To run a service task, use the task command, specifying the action and the name of the service.
 
-* With PE on the command line, run `puppet task run service action=<ACTION> service=<SERVICE_NAME>`.
-* With Bolt on the command line, run `bolt task run service action=<ACTION> service=<SERVICE_NAME>`.
+* With PE on the command line, run `puppet task run service action=<ACTION> name=<SERVICE_NAME>`.
+* With Bolt on the command line, run `bolt task run service action=<ACTION> name=<SERVICE_NAME>`.
 
 For example, to check the status of the Apache httpd service, run:
 
-* With PE, run `puppet task run service action=status service=httpd --nodes neptune`
-* With Bolt, run `bolt task run service action=status service=httpd --nodes neptune --modules ~/modules`
+* With PE, run `puppet task run service action=status name=httpd --nodes neptune`
+* With Bolt, run `bolt task run service action=status name=httpd --nodes neptune --modules ~/modules`
 
 You can also run tasks in the PE console. See PE task documentation for complete information.
 
